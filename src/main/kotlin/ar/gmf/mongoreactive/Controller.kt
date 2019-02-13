@@ -3,11 +3,10 @@ package ar.gmf.mongoreactive
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api")
 class Controller(val personRepo:PersonRepo) {
 
     @GetMapping("/persons")
-    fun getAll() = personRepo.findAll().take(10)
+    fun getAll() = personRepo.findAll()
 
     @PostMapping("/persons")
     fun save(@RequestBody person:Person) = personRepo.insert(person)
